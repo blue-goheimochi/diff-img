@@ -15,10 +15,19 @@ class Compare
         $resizeWidth  = ( $img1->getImageWidth() >= $img2->getImageWidth() )   ? $img1->getImageWidth()  : $img2->getImageWidth();
         $resizeHeight = ( $img1->getImageHeight() >= $img2->getImageHeight() ) ? $img1->getImageHeight() : $img2->getImageHeight();
         
+        if ( $resizeWidth > $resizeHeight ) {
+          $resizeHeight = $resizeWidth;
+        } else {
+          $resizeWidth = $resizeHeight;
+        }
+        
         $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()) / 2, 0);
         $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()) / 2, 0);
         
-        $result = $img1->compareImages($img2, \Imagick::METRIC_PEAKSIGNALTONOISERATIO);
+        $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+        $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+        
+        $result = $img1->compareImages($img2, 1);
         
         $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType,'wb');
         $result[0]->setImageFormat($outputImgType);
