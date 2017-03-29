@@ -15,10 +15,10 @@ class Compare
         $resizeWidth  = ( $img1->getImageWidth() >= $img2->getImageWidth() )   ? $img1->getImageWidth()  : $img2->getImageWidth();
         $resizeHeight = ( $img1->getImageHeight() >= $img2->getImageHeight() ) ? $img1->getImageHeight() : $img2->getImageHeight();
         
-        if ( $resizeWidth > $resizeHeight ) {
-          $resizeHeight = $resizeWidth;
+        if ($resizeWidth > $resizeHeight) {
+            $resizeHeight = $resizeWidth;
         } else {
-          $resizeWidth = $resizeHeight;
+            $resizeWidth = $resizeHeight;
         }
         
         $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()) / 2, 0);
@@ -29,9 +29,9 @@ class Compare
         
         $result = $img1->compareImages($img2, 1);
         
-        $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType,'wb');
+        $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         $result[0]->setImageFormat($outputImgType);
-        fwrite($fp,$result[0]);
+        fwrite($fp, $result[0]);
         fclose($fp);
         
         return $result[1];

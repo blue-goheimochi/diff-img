@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
 {
     public function testCompareSameImg()
@@ -9,7 +11,7 @@ class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
         $score = \DiffImg\Compare::create($img1, $img2);
         
         $this->assertTrue(file_exists(dirname(__FILE__) . '/../diff.jpg'));
-        $this->assertEquals( 0, $score );
+        $this->assertEquals(0, $score);
     }
     
     public function testOutputCustomPath()
@@ -20,7 +22,7 @@ class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
         $score = \DiffImg\Compare::create($img1, $img2, $outputPath);
           
         $this->assertTrue(file_exists(dirname(__FILE__) . '/logs/diff.jpg'));
-        $this->assertEquals( 0, $score );
+        $this->assertEquals(0, $score);
     }
     
     public function testOutputCustomFileType()
@@ -32,7 +34,7 @@ class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
         $score = \DiffImg\Compare::create($img1, $img2, $outputPath, $outputType);
           
         $this->assertTrue(file_exists(dirname(__FILE__) . '/../diff.png'));
-        $this->assertEquals( 0, $score );
+        $this->assertEquals(0, $score);
     }
     
     public function testOutputCustomFileName()
@@ -45,7 +47,7 @@ class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
         $score = \DiffImg\Compare::create($img1, $img2, $outputPath, $outputType, $outputName);
           
         $this->assertTrue(file_exists(dirname(__FILE__) . '/logs/custom-diff.png'));
-        $this->assertEquals( 0, $score );
+        $this->assertEquals(0, $score);
     }
     
     public function testCompareOtherImg()
@@ -58,7 +60,7 @@ class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
         $score = \DiffImg\Compare::create($img1, $img2, $outputPath, $outputType, $outputName);
           
         $this->assertTrue(file_exists(dirname(__FILE__) . '/logs/other-diff.png'));
-        $this->assertEquals( 999982, $score );
+        $this->assertEquals(999982, $score);
     }
     
     public function testCompareOtherImg2()
@@ -71,6 +73,6 @@ class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
         $score = \DiffImg\Compare::create($img1, $img2, $outputPath, $outputType, $outputName);
           
         $this->assertTrue(file_exists(dirname(__FILE__) . '/logs/other-diff2.png'));
-        $this->assertEquals( 551092, $score );
+        $this->assertEquals(551092, $score);
     }
 }
