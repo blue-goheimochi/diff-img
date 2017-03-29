@@ -6,15 +6,57 @@ class Compare
 {
     public static function create($imgPath1, $imgPath2, $outputPath = './', $outputImgType = 'jpg', $outputImgName = 'diff')
     {
-        $img1 = new imagick();
+        $img1 = new \Imagick();
         $img1->readImage($imgPath1);
         
-        $img2 = new imagick();
+        $img2 = new \Imagick();
         $img2->readImage($imgPath2);
         
-        $result = $img1->compareImages($img2, imagick::METRIC_PEAKSIGNALTONOISERATIO);
-        $fp = fopen($outputPath . $outputImgName . $outputImgType,'wb');
+        $resizeWidth  = ( $img1->getImageWidth() >= $img2->getImageWidth() )   ? $img1->getImageWidth()  : $img2->getImageWidth();
+        $resizeHeight = ( $img1->getImageHeight() >= $img2->getImageHeight() ) ? $img1->getImageHeight() : $img2->getImageHeight();
+        
+        $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()) / 2, 0);
+        $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()) / 2, 0);
+        
+        $result = $img1->compareImages($img2, \Imagick::METRIC_PEAKSIGNALTONOISERATIO);
+        
+        $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType,'wb');
+        $result[0]->setImageFormat($outputImgType);
         fwrite($fp,$result[0]);
         fclose($fp);
+        
+        return $result[1];
+    }
+    
+    public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
+    {
+        $img1 = new \Imagick();
+        $img1->readImage($imgPath1);
+          
+        $img2 = new \Imagick();
+        $img2->readImage($imgPath2);
+        
+        $resizeWidth  = ( $img1->getImageWidth() >= $img2->getImageWidth() )   ? $img1->getImageWidth()  : $img2->getImageWidth();
+        $resizeHeight = ( $img1->getImageHeight() >= $img2->getImageHeight() ) ? $img1->getImageHeight() : $img2->getImageHeight();
+        
+        $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()) / 2, 0);
+        $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()) / 2, 0);
+        
+        $animeGif = new \Imagick();
+        $animeGif->setFormat('gif');
+        
+        $img1->setImageFormat('gif');
+        $img1->setImageDelay(100);
+        $img1->setImageIterations(0);
+        
+        $img2->setImageFormat('gif');
+        $img2->setImageDelay(100);
+        $img2->setImageIterations(0);
+        
+        $animeGif->addImage($img1);
+        $animeGif->addImage($img2);
+        
+        $animeGifName = $outputPath . $outputImgName . '.gif';
+        $animeGif->writeImages($animeGifName, true);
     }
 }
