@@ -2,6 +2,9 @@
 
 ImgDiff compares two images using Imagick.
 
+[![Build Status](https://travis-ci.org/blue-goheimochi/diff-img.svg?branch=develop
+)](https://travis-ci.org/blue-goheimochi/diff-img)
+
 ## Require
 
 * ext-imagick
