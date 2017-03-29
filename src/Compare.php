@@ -12,8 +12,8 @@ class Compare
         $img2 = new \Imagick();
         $img2->readImage($imgPath2);
         
-        $resizeWidth  = ( $img1->getImageWidth() >= $img2->getImageWidth() )   ? $img1->getImageWidth()  : $img2->getImageWidth();
-        $resizeHeight = ( $img1->getImageHeight() >= $img2->getImageHeight() ) ? $img1->getImageHeight() : $img2->getImageHeight();
+        $resizeWidth  = ($img1->getImageWidth() >= $img2->getImageWidth())   ? $img1->getImageWidth()  : $img2->getImageWidth();
+        $resizeHeight = ($img1->getImageHeight() >= $img2->getImageHeight()) ? $img1->getImageHeight() : $img2->getImageHeight();
         
         if ($resizeWidth > $resizeHeight) {
             $resizeHeight = $resizeWidth;
@@ -45,8 +45,8 @@ class Compare
         $img2 = new \Imagick();
         $img2->readImage($imgPath2);
         
-        $resizeWidth  = ( $img1->getImageWidth() >= $img2->getImageWidth() )   ? $img1->getImageWidth()  : $img2->getImageWidth();
-        $resizeHeight = ( $img1->getImageHeight() >= $img2->getImageHeight() ) ? $img1->getImageHeight() : $img2->getImageHeight();
+        $resizeWidth  = ($img1->getImageWidth() >= $img2->getImageWidth())   ? $img1->getImageWidth()  : $img2->getImageWidth();
+        $resizeHeight = ($img1->getImageHeight() >= $img2->getImageHeight()) ? $img1->getImageHeight() : $img2->getImageHeight();
         
         $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()) / 2, 0);
         $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()) / 2, 0);
