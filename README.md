@@ -1,6 +1,6 @@
-# ImgDiff
+# DiffScreenshot
 
-ImgDiff compares two images using Imagick.
+DiffScreenshot compares two screenshot images.
 
 [![Build Status](https://travis-ci.org/blue-goheimochi/diff-img.svg?branch=develop
 )](https://travis-ci.org/blue-goheimochi/diff-img)
@@ -30,14 +30,14 @@ Then run `composer install`.
 
 ## Useage
 
-* Create a differential image of two images.
+* Score the difference between the two screenshots.
     ```
-    $score = \DiffImg\Compare::create($imgPath1, $imgPath2, $outputPath);
+    $score = \DiffScreenshot\DiffScreenshot::compare($imgPath1, $imgPath2);
     ```
-  If `$ score = 0`, there is no difference between the two images.  
+  If `$score = 0`, there is no difference between the two images.  
   The larger the value of $score, the greater the difference. (MAX: 1000000)
   
-* Create a Gif animation that switches two images one second at a time
+* Create a Gif animation that switches two screenshots one second at a time
     ```
-    \DiffImg\Compare::createAnimeGif($imgPath1, $imgPath2, $outputPath);
+    \DiffScreenshot\DiffScreenshot::createAnimeGif($imgPath1, $imgPath2, $outputPath);
     ```

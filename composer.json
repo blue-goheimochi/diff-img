@@ -1,7 +1,7 @@
 {
-    "name": "blue-goheimochi/diff-img",
+    "name": "blue-goheimochi/diff-screenshot",
     "description": "",
-    "keywords": ["Diff", "Image"],
+    "keywords": ["Diff", "Screenshot"],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DiffImg\\": "src/"
+            "DiffScreenshot\\": "src/"
         }
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace DiffImg;
+namespace DiffScreenshot;
 
-class Compare
+class DiffScreenshot
 {
-    public static function create($imgPath1, $imgPath2, $outputPath = './', $outputImgType = 'jpg', $outputImgName = 'diff')
+    public static function compare($imgPath1, $imgPath2, $outputPath = './', $outputImgType = 'jpg', $outputImgName = 'diff')
     {
         $img1 = new \Imagick();
         $img1->readImage($imgPath1);
