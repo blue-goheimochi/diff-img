@@ -6,6 +6,7 @@ class DiffScreenshot
 {
     public static function compare($imgPath1, $imgPath2, $outputPath = './', $outputImgType = 'jpg', $outputImgName = 'diff')
     {
+        /*
         $img1 = new \Imagick();
         $img1->readImage($imgPath1);
         
@@ -35,6 +36,7 @@ class DiffScreenshot
         fclose($fp);
         
         return $result[1];
+        */
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
