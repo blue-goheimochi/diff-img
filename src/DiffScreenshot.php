@@ -34,6 +34,8 @@ class DiffScreenshot
         fwrite($fp, $result[0]);
         fclose($fp);
         
+        var_dump($result);
+        
         return (int)$result[1];
     }
     
