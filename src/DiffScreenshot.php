@@ -37,7 +37,7 @@ class DiffScreenshot
         
         echo "test4";
         
-        // $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
+        $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         
         echo "test5";
         
