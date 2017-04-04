@@ -21,39 +21,63 @@ class DiffScreenshot
             $resizeWidth = $resizeHeight;
         }
         
-        echo "test1";
+        try {
+            $img1->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img1->getImageWidth()) / 2, 0);
+            $img2->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img2->getImageWidth()) / 2, 0);
+        } catch (Exception $e) {
+            echo "test1";
+            throw $e;
+        }
         
-        $img1->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img1->getImageWidth()) / 2, 0);
-        $img2->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img2->getImageWidth()) / 2, 0);
+        try {
+            $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+            $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+        } catch (Exception $e) {
+            echo "test2";
+            throw $e;
+        }
         
-        echo "test2";
+        try {
+            $result = $img1->compareImages($img2, 1);
+        } catch (Exception $e) {
+            echo "test3";
+            throw $e;
+        }
         
-        $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
-        $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+        try {
+            $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
+        } catch (Exception $e) {
+            echo "test4";
+            throw $e;
+        }
         
-        echo "test3";
+        try {
+            $result[0]->setImageFormat($outputImgType);
+        } catch (Exception $e) {
+            echo "test5";
+            throw $e;
+        }
         
-        $result = $img1->compareImages($img2, 1);
+        try {
+            fwrite($fp, $result[0]);
+        } catch (Exception $e) {
+            echo "test6";
+            throw $e;
+        }
         
-        echo "test4";
+        try {
+            fclose($fp);
+        } catch (Exception $e) {
+            echo "test7";
+            throw $e;
+        }
         
-        $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
-        
-        echo "test5";
-        
-        $result[0]->setImageFormat($outputImgType);
-        
-        echo "test6";
-        
-        fwrite($fp, $result[0]);
-        
-        echo "test7";
-        
-        fclose($fp);
-        
-        var_dump($result);
-        
-        return (int)$result[1];
+        try {
+            return (int)$result[1];
+        } catch (Exception $e) {
+            echo "test8";
+            throw $e;
+        }
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
