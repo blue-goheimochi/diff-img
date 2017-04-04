@@ -41,7 +41,7 @@ class DiffScreenshot
         
         echo "test5";
         
-        // $result[0]->setImageFormat($outputImgType);
+        $result[0]->setImageFormat($outputImgType);
         
         echo "test6";
         
