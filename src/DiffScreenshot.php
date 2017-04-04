@@ -28,32 +28,32 @@ class DiffScreenshot
         
         echo "test2";
         
-        $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
-        $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+        // $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+        // $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         
         echo "test3";
         
-        $result = $img1->compareImages($img2, 1);
+        // $result = $img1->compareImages($img2, 1);
         
         echo "test4";
         
-        $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
+        // $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         
         echo "test5";
         
-        $result[0]->setImageFormat($outputImgType);
+        // $result[0]->setImageFormat($outputImgType);
         
         echo "test6";
         
-        fwrite($fp, $result[0]);
+        // fwrite($fp, $result[0]);
         
         echo "test7";
         
-        fclose($fp);
+        // fclose($fp);
         
-        var_dump($result);
+        // var_dump($result);
         
-        return (int)$result[1];
+        return 0; //(int)$result[1];
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
