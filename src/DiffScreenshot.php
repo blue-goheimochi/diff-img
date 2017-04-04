@@ -27,7 +27,7 @@ class DiffScreenshot
         // $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         // $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         
-        $result = $img1->compareImages($img2, 1);
+        // $result = $img1->compareImages($img2, 1);
         
         // $diffImg = new \Imagick();
         // $diffImg->setFormat($outputImgType);
