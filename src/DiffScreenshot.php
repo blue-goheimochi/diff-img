@@ -21,17 +21,17 @@ class DiffScreenshot
             $resizeWidth = $resizeHeight;
         }
         
-        $img1->extentImage((int)$resizeWidth, (int)$resizeHeight, (int)-($resizeWidth - $img1->getImageWidth()) / 2, 0);
-        $img2->extentImage((int)$resizeWidth, (int)$resizeHeight, (int)-($resizeWidth - $img2->getImageWidth()) / 2, 0);
+        $img1->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img1->getImageWidth()) / 2, 0);
+        $img2->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img2->getImageWidth()) / 2, 0);
         
         $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         
         $result = $img1->compareImages($img2, 1);
         
-        // $diffImg = new \Imagick();
-        // $diffImg->setFormat($outputImgType);
-        // $diffImg->writeImages($outputPath . $outputImgName . '.' . $outputImgType, true);
+        $diffImg = new \Imagick();
+        $diffImg->setFormat($outputImgType);
+        $diffImg->writeImages($outputPath . $outputImgName . '.' . $outputImgType, true);
         
         // $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         // $result[0]->setImageFormat($outputImgType);
