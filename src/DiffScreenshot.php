@@ -33,7 +33,7 @@ class DiffScreenshot
         // $diffImg->setFormat($outputImgType);
         // $diffImg->writeImages($outputPath . $outputImgName . '.' . $outputImgType, true);
         
-        $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
+        // $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         $result[0]->setImageFormat($outputImgType);
         // fwrite($fp, $result[0]);
         fclose($fp);
