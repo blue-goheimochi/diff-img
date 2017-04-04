@@ -33,7 +33,7 @@ class DiffScreenshot
         
         echo "test3";
         
-        // $result = $img1->compareImages($img2, 1);
+        $result = $img1->compareImages($img2, 1);
         
         echo "test4";
         
@@ -51,7 +51,7 @@ class DiffScreenshot
         
         // fclose($fp);
         
-        // var_dump($result);
+        var_dump($result);
         
         return 0; //(int)$result[1];
     }
