@@ -31,7 +31,7 @@ class DiffScreenshot
         
         $diffImg = new \Imagick();
         $diffImg->setFormat($outputImgType);
-        $diffImg->writeImages($outputPath . $outputImgName . '.' . $outputImgType, true);
+        // $diffImg->writeImages($outputPath . $outputImgName . '.' . $outputImgType, true);
         
         // $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         // $result[0]->setImageFormat($outputImgType);
