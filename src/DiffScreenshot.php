@@ -27,7 +27,7 @@ class DiffScreenshot
         // $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         // $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         
-        $result = $img1->compareImages($img2, 1);
+        // $result = $img1->compareImages($img2, 1);
         
         // $diffImg = new \Imagick();
         // $diffImg->setFormat($outputImgType);
@@ -38,7 +38,7 @@ class DiffScreenshot
         // fwrite($fp, $result[0]);
         // fclose($fp);
         
-        return $result[1];
+        return 0; //$result[1];
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
