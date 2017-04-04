@@ -21,17 +21,34 @@ class DiffScreenshot
             $resizeWidth = $resizeHeight;
         }
         
+        echo "test1";
+        
         $img1->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img1->getImageWidth()) / 2, 0);
         $img2->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img2->getImageWidth()) / 2, 0);
+        
+        echo "test2";
         
         $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         
+        echo "test3";
+        
         $result = $img1->compareImages($img2, 1);
         
+        echo "test4";
+        
         $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
+        
+        echo "test5";
+        
         $result[0]->setImageFormat($outputImgType);
+        
+        echo "test6";
+        
         fwrite($fp, $result[0]);
+        
+        echo "test7";
+        
         fclose($fp);
         
         var_dump($result);
