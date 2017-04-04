@@ -45,7 +45,7 @@ class DiffScreenshot
         
         echo "test6";
         
-        // fwrite($fp, $result[0]);
+        fwrite($fp, $result[0]);
         
         echo "test7";
         
