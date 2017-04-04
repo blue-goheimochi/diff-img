@@ -28,8 +28,8 @@ class DiffScreenshot
         
         echo "test2";
         
-        // $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
-        // $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+        $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+        $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         
         echo "test3";
         
