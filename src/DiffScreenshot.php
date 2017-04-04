@@ -49,7 +49,7 @@ class DiffScreenshot
         
         echo "test7";
         
-        // fclose($fp);
+        fclose($fp);
         
         var_dump($result);
         
