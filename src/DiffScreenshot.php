@@ -8,9 +8,11 @@ class DiffScreenshot
     {
         $img1 = new \Imagick();
         $img1->readImage($imgPath1);
+        $img1->scaleImage(1000, 0);
         
         $img2 = new \Imagick();
         $img2->readImage($imgPath2);
+        $img2->scaleImage(1000, 0);
         
         $resizeWidth  = ($img1->getImageWidth() >= $img2->getImageWidth())   ? $img1->getImageWidth()  : $img2->getImageWidth();
         $resizeHeight = ($img1->getImageHeight() >= $img2->getImageHeight()) ? $img1->getImageHeight() : $img2->getImageHeight();
