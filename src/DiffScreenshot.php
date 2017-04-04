@@ -29,16 +29,14 @@ class DiffScreenshot
         
         $result = $img1->compareImages($img2, 1);
         
-        $diffImg = new \Imagick();
-        $diffImg->setFormat($outputImgType);
-        $diffImg->writeImages($outputPath . $outputImgName . '.' . $outputImgType, true);
+        // $diffImg = new \Imagick();
+        // $diffImg->setFormat($outputImgType);
+        // $diffImg->writeImages($outputPath . $outputImgName . '.' . $outputImgType, true);
         
-        /*
         $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         $result[0]->setImageFormat($outputImgType);
-        fwrite($fp, $result[0]);
+        // fwrite($fp, $result[0]);
         fclose($fp);
-        */
         
         return $result[1];
     }
