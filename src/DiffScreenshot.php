@@ -40,7 +40,7 @@ class DiffScreenshot
         
         var_dump($result);
         
-        return 0;
+        return (int)$result[1];
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
