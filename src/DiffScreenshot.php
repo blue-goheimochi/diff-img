@@ -61,7 +61,6 @@ class DiffScreenshot
             return 0;
         }
         
-        /*
         try {
             fwrite($fp, $result[0]);
         } catch (Exception $e) {
@@ -83,17 +82,13 @@ class DiffScreenshot
             echo "test7-2";
             return 0;
         }
-        */
         
-        /*
         try {
             return (int)$result[1];
         } catch (Exception $e) {
             echo "test8";
             return 0;
         }
-        */
-        return 0;
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
@@ -126,5 +121,9 @@ class DiffScreenshot
         
         $animeGifName = $outputPath . $outputImgName . '.gif';
         $animeGif->writeImages($animeGifName, true);
+        
+        $img1->clear();
+        $img2->clear();
+        $animeGif->clear();
     }
 }
