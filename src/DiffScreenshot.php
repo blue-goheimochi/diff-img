@@ -23,74 +23,24 @@ class DiffScreenshot
             $resizeWidth = $resizeHeight;
         }
         
-        try {
-            $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()), 0);
-            $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()), 0);
-        } catch (Exception $e) {
-            echo "test1";
-            return 0;
-        }
+        $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()), 0);
+        $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()), 0);
         
-        try {
-            $img1->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
-            $img2->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
-        } catch (Exception $e) {
-            echo "test2";
-            return 0;
-        }
+        $img1->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
+        $img2->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
         
-        try {
-            // cf: http://php.net/manual/ja/imagick.compareimages.php#114944
-            $result = $img1->compareImages($img2, 1);
-        } catch (Exception $e) {
-            echo "test3";
-            return 0;
-        }
+        // cf: http://php.net/manual/ja/imagick.compareimages.php#114944
+        $result = $img1->compareImages($img2, 1);
+            
+        $diffImgName = $outputPath . $outputImgName . '.' . $outputImgType;
+        $result[0]->writeImages($diffImgName, true);
         
-        try {
-            $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
-        } catch (Exception $e) {
-            echo "test4";
-            return 0;
-        }
-        
-        try {
-            $result[0]->setImageFormat($outputImgType);
-        } catch (Exception $e) {
-            echo "test5";
-            return 0;
-        }
-        
-        try {
-            fwrite($fp, $result[0]);
-        } catch (Exception $e) {
-            echo "test6";
-            return 0;
-        }
-        
-        try {
-            fclose($fp);
-        } catch (Exception $e) {
-            echo "test7";
-            return 0;
-        }
-        
-        try {
-            $img1->clear();
-            $img2->clear();
-        } catch (Exception $e) {
-            echo "test7-2";
-            return 0;
-        }
-        var_dump($result);
-        var_dump($result[1]);
+        $img1->clear();
+        $img2->clear();
         $result[0]->clear();
-        try {
-            return 0;
-        } catch (Exception $e) {
-            echo "test8";
-            return 0;
-        }
+        
+        $score = $result[1];
+        return (int) $score;
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
