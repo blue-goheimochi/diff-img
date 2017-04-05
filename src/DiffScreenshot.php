@@ -24,9 +24,8 @@ class DiffScreenshot
         }
         
         try {
-            $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()) / 2, 0);
-            $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()) / 2, 0);
-            var_dump(-($resizeWidth - $img2->getImageWidth()));
+            $img1->extentImage($resizeWidth, $resizeHeight, 0, 0);
+            $img2->extentImage($resizeWidth, $resizeHeight, 0, 0);
         } catch (Exception $e) {
             echo "test1";
             return 0;
@@ -40,7 +39,6 @@ class DiffScreenshot
             return 0;
         }
         
-        /*
         try {
             // cf: http://php.net/manual/ja/imagick.compareimages.php#114944
             $result = $img1->compareImages($img2, 1);
@@ -48,7 +46,6 @@ class DiffScreenshot
             echo "test3";
             return 0;
         }
-        */
         
         /*
         try {
