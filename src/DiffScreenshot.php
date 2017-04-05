@@ -8,14 +8,14 @@ class DiffScreenshot
     {
         $img1 = new \Imagick();
         $img1->readImage($imgPath1);
-        $img1->scaleImage(0, 1000);
+        $img1->scaleImage(0, 500);
             
         $diffImgName = $outputPath . $outputImgName . '-1.' . $outputImgType;
         $img1->writeImages($diffImgName, true);
         
         $img2 = new \Imagick();
         $img2->readImage($imgPath2);
-        $img2->scaleImage(0, 1000);
+        $img2->scaleImage(0, 500);
             
         $diffImgName = $outputPath . $outputImgName . '-2.' . $outputImgType;
         $img2->writeImages($diffImgName, true);
@@ -32,8 +32,8 @@ class DiffScreenshot
         $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth())/2, 0);
         $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth())/2, 0);
         
-        $img1->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
-        $img2->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
+        $img1->resizeImage(500, 500, \Imagick::FILTER_POINT, 0);
+        $img2->resizeImage(500, 500, \Imagick::FILTER_POINT, 0);
         
         // cf: http://php.net/manual/ja/imagick.compareimages.php#114944
         $result = $img1->compareImages($img2, 1);
