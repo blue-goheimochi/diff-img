@@ -26,7 +26,7 @@ class DiffScreenshot
         try {
             $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()) / 2, 0);
             $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()) / 2, 0);
-            var_dump(-($resizeWidth - $img1->getImageWidth()));
+            var_dump(-($resizeWidth - $img2->getImageWidth()));
         } catch (Exception $e) {
             echo "test1";
             return 0;
@@ -86,15 +86,12 @@ class DiffScreenshot
         }
         */
         
-        /*
         try {
             return (int)$result[1];
         } catch (Exception $e) {
             echo "test8";
             return 0;
         }
-        */
-        return 0;
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
