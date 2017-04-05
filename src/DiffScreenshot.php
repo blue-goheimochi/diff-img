@@ -40,6 +40,7 @@ class DiffScreenshot
             return 0;
         }
         
+        /*
         try {
             // cf: http://php.net/manual/ja/imagick.compareimages.php#114944
             $result = $img1->compareImages($img2, 1);
@@ -47,6 +48,7 @@ class DiffScreenshot
             echo "test3";
             return 0;
         }
+        */
         
         /*
         try {
@@ -86,12 +88,15 @@ class DiffScreenshot
         }
         */
         
+        /*
         try {
             return (int)$result[1];
         } catch (Exception $e) {
             echo "test8";
             return 0;
         }
+        */
+        return 0;
     }
     
     public static function createAnimeGif($imgPath1, $imgPath2, $outputPath = './', $outputImgName = 'anime-diff')
