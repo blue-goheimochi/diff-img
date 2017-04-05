@@ -38,8 +38,8 @@ class DiffScreenshot
         // cf: http://php.net/manual/ja/imagick.compareimages.php#114944
         $result = $img1->compareImages($img2, 1);
             
-        $diffImgName = $outputPath . $outputImgName . '.' . $outputImgType;
-        $result[0]->writeImages($diffImgName, true);
+        // $diffImgName = $outputPath . $outputImgName . '.' . $outputImgType;
+        // $result[0]->writeImages($diffImgName, true);
         
         $img1->clear();
         $img2->clear();
