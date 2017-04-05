@@ -32,8 +32,8 @@ class DiffScreenshot
         }
         
         try {
-            $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
-            $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+            // $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+            // $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
         } catch (Exception $e) {
             echo "test2";
             return 0;
