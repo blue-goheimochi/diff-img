@@ -82,7 +82,8 @@ class DiffScreenshot
             echo "test7-2";
             return 0;
         }
-        
+        var_dump($result);
+        var_dump($result[1]);
         /*
         try {
             return (int)$result[1];
