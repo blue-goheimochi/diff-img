@@ -60,7 +60,7 @@ class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
         $score = \DiffScreenshot\DiffScreenshot::compare($img1, $img2, $outputPath, $outputType, $outputName);
           
         $this->assertTrue(file_exists(dirname(__FILE__) . '/logs/other-diff.png'));
-        $this->assertEquals(647800, $score);
+        $this->assertEquals(443985, $score);
     }
     
     public function testCompareOtherImg2()
@@ -73,6 +73,6 @@ class CreateDiffImgTest extends \PHPUnit_Framework_TestCase
         $score = \DiffScreenshot\DiffScreenshot::compare($img1, $img2, $outputPath, $outputType, $outputName);
           
         $this->assertTrue(file_exists(dirname(__FILE__) . '/logs/other-diff2.png'));
-        $this->assertEquals(551092, $score);
+        $this->assertEquals(443985, $score);
     }
 }
