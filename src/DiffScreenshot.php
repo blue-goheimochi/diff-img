@@ -38,7 +38,7 @@ class DiffScreenshot
             echo "test2";
             return 0;
         }
-        /*
+        
         try {
             $result = $img1->compareImages($img2, 1);
         } catch (Exception $e) {
@@ -46,6 +46,7 @@ class DiffScreenshot
             return 0;
         }
         
+        /*
         try {
             $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         } catch (Exception $e) {
