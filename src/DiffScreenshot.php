@@ -48,6 +48,7 @@ class DiffScreenshot
             return 0;
         }
         
+        /*
         try {
             $fp = fopen($outputPath . $outputImgName . '.' . $outputImgType, 'wb');
         } catch (Exception $e) {
@@ -83,6 +84,7 @@ class DiffScreenshot
             echo "test7-2";
             return 0;
         }
+        */
         
         try {
             return (int)$result[1];
