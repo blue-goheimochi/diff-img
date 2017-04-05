@@ -85,7 +85,7 @@ class DiffScreenshot
         var_dump($result);
         var_dump($result[1]);
         try {
-            return $result[1];
+            return 0;
         } catch (Exception $e) {
             echo "test8";
             return 0;
