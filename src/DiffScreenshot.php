@@ -54,7 +54,6 @@ class DiffScreenshot
             return 0;
         }
         
-        /*
         try {
             $result[0]->setImageFormat($outputImgType);
         } catch (Exception $e) {
@@ -62,6 +61,7 @@ class DiffScreenshot
             return 0;
         }
         
+        /*
         try {
             fwrite($fp, $result[0]);
         } catch (Exception $e) {
