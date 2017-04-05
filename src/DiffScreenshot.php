@@ -24,16 +24,16 @@ class DiffScreenshot
         }
         
         try {
-            // $img1->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img1->getImageWidth()) / 2, 0);
-            // $img2->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img2->getImageWidth()) / 2, 0);
+            $img1->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img1->getImageWidth()) / 2, 0);
+            $img2->extentImage($resizeWidth, $resizeHeight, (int)-($resizeWidth - $img2->getImageWidth()) / 2, 0);
         } catch (Exception $e) {
             echo "test1";
             return 0;
         }
         
         try {
-            // $img1->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
-            // $img2->resizeImage(1000, 1000, \Imagick::FILTER_LANCZOS, 1);
+            $img1->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
+            $img2->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
         } catch (Exception $e) {
             echo "test2";
             return 0;
