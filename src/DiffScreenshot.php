@@ -24,8 +24,8 @@ class DiffScreenshot
         }
         
         try {
-            $img1->extentImage($resizeWidth, $resizeHeight, 0, 0);
-            $img2->extentImage($resizeWidth, $resizeHeight, 0, 0);
+            $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()), 0);
+            $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()), 0);
         } catch (Exception $e) {
             echo "test1";
             return 0;
@@ -84,6 +84,7 @@ class DiffScreenshot
         }
         var_dump($result);
         var_dump($result[1]);
+        $result[0]->clear();
         try {
             return 0;
         } catch (Exception $e) {
