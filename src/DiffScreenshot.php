@@ -23,8 +23,8 @@ class DiffScreenshot
             $resizeWidth = $resizeHeight;
         }
         
-        $img1->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img1->getImageWidth()), 0);
-        $img2->extentImage($resizeWidth, $resizeHeight, -($resizeWidth - $img2->getImageWidth()), 0);
+        $img1->extentImage($resizeWidth, $resizeHeight, -(($resizeWidth - $img1->getImageWidth())/2), 0);
+        $img2->extentImage($resizeWidth, $resizeHeight, -(($resizeWidth - $img2->getImageWidth())/2), 0);
         
         $img1->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
         $img2->resizeImage(1000, 1000, \Imagick::FILTER_POINT, 0);
