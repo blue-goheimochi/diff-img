@@ -30,16 +30,16 @@ class DiffScreenshot
         $img2->resizeImage(500, 500, \Imagick::FILTER_POINT, 0);
         
         // cf: http://php.net/manual/ja/imagick.compareimages.php#114944
-        // $result = $img1->compareImages($img2, 1);
+        $result = $img1->compareImages($img2, 1);
             
-        // $diffImgName = $outputPath . $outputImgName . '.' . $outputImgType;
-        // $result[0]->writeImages($diffImgName, true);
+        $diffImgName = $outputPath . $outputImgName . '.' . $outputImgType;
+        $result[0]->writeImages($diffImgName, true);
         
         $img1->clear();
         $img2->clear();
-        // $result[0]->clear();
+        $result[0]->clear();
         
-        $score = 0; //$result[1];
+        $score = $result[1];
         return (int) $score;
     }
     
